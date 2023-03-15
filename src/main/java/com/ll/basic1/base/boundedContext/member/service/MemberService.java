@@ -24,7 +24,7 @@ public class MemberService {
         }
 
 
-        return RsData.of("S-1", "%s 님 환영합니다.".formatted(username));
+        return RsData.of("S-1", "%s 님 환영합니다.".formatted(username),member.getId());
     }
 
     public Member save(String username, String password) {
@@ -33,5 +33,9 @@ public class MemberService {
 
     public Member findByUser(String username) {
         return memberRepository.findByUser(username);
+    }
+
+    public Member findByUserId(long loginedMemberId) {
+        return memberRepository.findByUserId(loginedMemberId);
     }
 }

@@ -19,7 +19,7 @@ public class MemberRepository {
         members.add(new Member("test","1234"));
         members.add(new Member("love","1234"));
         members.add(new Member("like","1234"));
-        members.add(new Member("giving","1234"));
+        members.add(new Member("giving","12349"));
         members.add(new Member("thanks","1234"));
         members.add(new Member("hello","1234"));
         members.add(new Member("good","1234"));
@@ -34,6 +34,13 @@ public class MemberRepository {
     public Member findByUser(String username){
         return members.stream()
                 .filter(m -> m.getUsername().equals(username))
+                .findFirst()
+                .orElse(null);
+    }
+
+    public Member findByUserId(long id) {
+        return members.stream()
+                .filter(m -> m.getId() == id)
                 .findFirst()
                 .orElse(null);
     }
