@@ -7,8 +7,6 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import org.springframework.stereotype.Repository;
 
-@Getter
-@AllArgsConstructor
 @Repository
 public class MemberRepository {
     private List<Member> members;
@@ -39,7 +37,8 @@ public class MemberRepository {
     }
 
     public Member findByUserId(long id) {
-        return members.stream()
+        return members
+                .stream()
                 .filter(m -> m.getId() == id)
                 .findFirst()
                 .orElse(null);

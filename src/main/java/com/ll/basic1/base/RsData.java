@@ -13,7 +13,7 @@ public class RsData {
     private final Object data;
 
     public static RsData of(String resultCode, String msg) {
-        return new RsData(resultCode, msg,null);
+        return of(resultCode, msg,null);
     }
 
     public static RsData of(String resultCode, String msg,Object data) {
